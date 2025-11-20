@@ -1,0 +1,54 @@
+[
+    {
+        "fun": "main_0x603e4beec608",
+        "funLoc": 11,
+        "instRes": [
+            {
+                "value": "  %33 = icmp eq i32 %32, 0, !dbg !45",
+                "range": "[-1,-1]",
+                "line": 59
+            },
+            {
+                "value": "  %32 = srem i32 %31, 2, !dbg !44",
+                "range": "[0,0]",
+                "line": 58
+            },
+            {
+                "value": "  %16 = icmp sgt i32 %15, 4, !dbg !24",
+                "range": "[0,0]",
+                "line": 31
+            },
+            {
+                "value": "  %15 = load i32, i32* %4, align 4, !dbg !22",
+                "range": "[-2147483648,4]",
+                "line": 30
+            },
+            {
+                "value": "  %13 = icmp slt i32 %12, 3, !dbg !20",
+                "range": "[0,0]",
+                "line": 26
+            },
+            {
+                "value": "  %12 = load i32, i32* %4, align 4, !dbg !18",
+                "range": "[3,2147483647]",
+                "line": 25
+            }
+        ],
+        "argRes": [],
+        "unreachbb": [
+            35,
+            74,
+            79,
+            83,
+            96,
+            102,
+            107,
+            113,
+            130,
+            136,
+            139,
+            145,
+            161
+        ]
+    }
+]

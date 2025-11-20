@@ -1,0 +1,538 @@
+; ModuleID = './transed.bc'
+source_filename = "llvm-link"
+target datalayout = "e-m:e-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+@.str = private unnamed_addr constant [32 x i8] c"Please provide 2 or 3 arguments\00", align 1
+@.str.1 = private unnamed_addr constant [8 x i8] c"MODFAIL\00", align 1
+@.str.2 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@__afl_area_ptr = external global i8*
+@__afl_prev_loc = external thread_local global i32
+
+; Function Attrs: noinline nounwind uwtable
+define i32 @main(i32, i8**) #0 !dbg !6 {
+  %3 = load i32, i32* @__afl_prev_loc, !nosanitize !2
+  %4 = load i8*, i8** @__afl_area_ptr, !nosanitize !2
+  %5 = xor i32 %3, 17767
+  %6 = getelementptr i8, i8* %4, i32 %5
+  %7 = load i8, i8* %6, !nosanitize !2
+  %8 = add i8 %7, 1
+  store i8 %8, i8* %6, !nosanitize !2
+  store i32 8883, i32* @__afl_prev_loc, !nosanitize !2
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i8**, align 8
+  %12 = alloca i8*, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i8*, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  store i32 0, i32* %9, align 4
+  store i32 %0, i32* %10, align 4
+  call void @llvm.dbg.declare(metadata i32* %10, metadata !13, metadata !14), !dbg !15
+  store i8** %1, i8*** %11, align 8
+  call void @llvm.dbg.declare(metadata i8*** %11, metadata !16, metadata !14), !dbg !17
+  %18 = load i32, i32* %10, align 4, !dbg !18
+  %19 = icmp sle i32 3, %18
+  %20 = icmp sge i32 2147483647, %18
+  %21 = and i1 %19, %20
+  %22 = or i1 false, %21
+  br i1 %22, label %23, label %EXIT_INT_main
+
+; <label>:23:                                     ; preds = %2, <null operand!>
+  %24 = icmp slt i32 %18, 3, !dbg !20
+  %25 = icmp sle i1 false, %24
+  %26 = icmp sge i1 false, %24
+  %27 = and i1 %25, %26
+  %28 = or i1 false, %27
+  br i1 %28, label %29, label %EXIT_INT_main
+
+; <label>:29:                                     ; preds = %23, <null operand!>
+  br i1 %24, label %49, label %30, !dbg !21
+
+; <label>:30:                                     ; preds = %29
+  %31 = load i32, i32* @__afl_prev_loc, !dbg !22, !nosanitize !2
+  %32 = load i8*, i8** @__afl_area_ptr, !dbg !22, !nosanitize !2
+  %33 = xor i32 %31, 9158, !dbg !22
+  %34 = getelementptr i8, i8* %32, i32 %33, !dbg !22
+  %35 = load i8, i8* %34, !dbg !22, !nosanitize !2
+  %36 = add i8 %35, 1, !dbg !22
+  store i8 %36, i8* %34, !dbg !22, !nosanitize !2
+  store i32 4579, i32* @__afl_prev_loc, !dbg !22, !nosanitize !2
+  %37 = load i32, i32* %10, align 4, !dbg !22
+  %38 = icmp sle i32 -2147483648, %37
+  %39 = icmp sge i32 4, %37
+  %40 = and i1 %38, %39
+  %41 = or i1 false, %40
+  br i1 %41, label %42, label %EXIT_INT_main
+
+; <label>:42:                                     ; preds = %30, <null operand!>
+  %43 = icmp sgt i32 %37, 4, !dbg !24
+  %44 = icmp sle i1 false, %43
+  %45 = icmp sge i1 false, %43
+  %46 = and i1 %44, %45
+  %47 = or i1 false, %46
+  br i1 %47, label %48, label %EXIT_INT_main
+
+; <label>:48:                                     ; preds = %42, <null operand!>
+  br i1 %43, label %49, label %58, !dbg !25
+
+; <label>:49:                                     ; preds = %48, %29
+  %50 = load i32, i32* @__afl_prev_loc, !nosanitize !2
+  %51 = load i8*, i8** @__afl_area_ptr, !nosanitize !2
+  %52 = xor i32 %50, 39017
+  %53 = getelementptr i8, i8* %51, i32 %52
+  %54 = load i8, i8* %53, !nosanitize !2
+  %55 = add i8 %54, 1
+  store i8 %55, i8* %53, !nosanitize !2
+  store i32 19508, i32* @__afl_prev_loc, !nosanitize !2
+  %56 = getelementptr [32 x i8], [32 x i8]* @.str, i32 0, i32 0
+  %57 = call i32 (i8*, ...) @printf(i8* %56), !dbg !27
+  store i32 5, i32* %9, align 4, !dbg !29
+  br label %238, !dbg !29
+
+; <label>:58:                                     ; preds = %48
+  %59 = load i32, i32* @__afl_prev_loc, !dbg !30, !nosanitize !2
+  %60 = load i8*, i8** @__afl_area_ptr, !dbg !30, !nosanitize !2
+  %61 = xor i32 %59, 18547, !dbg !30
+  %62 = getelementptr i8, i8* %60, i32 %61, !dbg !30
+  %63 = load i8, i8* %62, !dbg !30, !nosanitize !2
+  %64 = add i8 %63, 1, !dbg !30
+  store i8 %64, i8* %62, !dbg !30, !nosanitize !2
+  store i32 9273, i32* @__afl_prev_loc, !dbg !30, !nosanitize !2
+  %65 = load i32, i32* %10, align 4, !dbg !30
+  %66 = srem i32 %65, 2, !dbg !32
+  %67 = icmp sle i32 0, %66
+  %68 = icmp sge i32 0, %66
+  %69 = and i1 %67, %68
+  %70 = or i1 false, %69
+  br i1 %70, label %71, label %EXIT_INT_main
+
+; <label>:71:                                     ; preds = %58, <null operand!>
+  %72 = icmp ne i32 %66, 0, !dbg !32
+  %73 = icmp sle i1 false, %72
+  %74 = icmp sge i1 false, %72
+  %75 = and i1 %73, %74
+  %76 = or i1 false, %75
+  br i1 %76, label %77, label %EXIT_INT_main
+
+; <label>:77:                                     ; preds = %71, <null operand!>
+  br i1 %72, label %78, label %87, !dbg !33
+
+; <label>:78:                                     ; preds = %77
+  %79 = load i32, i32* @__afl_prev_loc, !nosanitize !2
+  %80 = load i8*, i8** @__afl_area_ptr, !nosanitize !2
+  %81 = xor i32 %79, 56401
+  %82 = getelementptr i8, i8* %80, i32 %81
+  %83 = load i8, i8* %82, !nosanitize !2
+  %84 = add i8 %83, 1
+  store i8 %84, i8* %82, !nosanitize !2
+  store i32 28200, i32* @__afl_prev_loc, !nosanitize !2
+  %85 = getelementptr [8 x i8], [8 x i8]* @.str.1, i32 0, i32 0
+  %86 = call i32 (i8*, ...) @printf(i8* %85), !dbg !34
+  store i32 18, i32* %9, align 4, !dbg !36
+  br label %238, !dbg !36
+
+; <label>:87:                                     ; preds = %77
+  %88 = load i32, i32* @__afl_prev_loc, !dbg !37, !nosanitize !2
+  %89 = load i8*, i8** @__afl_area_ptr, !dbg !37, !nosanitize !2
+  %90 = xor i32 %88, 23807, !dbg !37
+  %91 = getelementptr i8, i8* %89, i32 %90, !dbg !37
+  %92 = load i8, i8* %91, !dbg !37, !nosanitize !2
+  %93 = add i8 %92, 1, !dbg !37
+  store i8 %93, i8* %91, !dbg !37, !nosanitize !2
+  store i32 11903, i32* @__afl_prev_loc, !dbg !37, !nosanitize !2
+  call void @llvm.dbg.declare(metadata i8** %12, metadata !38, metadata !14), !dbg !37
+  %94 = load i8**, i8*** %11, align 8, !dbg !39
+  %95 = getelementptr inbounds i8*, i8** %94, i64 1, !dbg !39
+  %96 = load i8*, i8** %95, align 8, !dbg !39
+  store i8* %96, i8** %12, align 8, !dbg !37
+  call void @llvm.dbg.declare(metadata i32* %13, metadata !40, metadata !14), !dbg !42
+  %97 = load i8*, i8** %12, align 8, !dbg !43
+  %98 = call i64 @strlen(i8* %97) #5, !dbg !44
+  %99 = trunc i64 %98 to i32, !dbg !44
+  store i32 %99, i32* %13, align 4, !dbg !42
+  call void @llvm.dbg.declare(metadata i32* %14, metadata !45, metadata !14), !dbg !46
+  %100 = load i8**, i8*** %11, align 8, !dbg !47
+  %101 = getelementptr inbounds i8*, i8** %100, i64 2, !dbg !47
+  %102 = load i8*, i8** %101, align 8, !dbg !47
+  %103 = call i32 @atoi(i8* %102) #5, !dbg !48
+  store i32 %103, i32* %14, align 4, !dbg !46
+  %104 = load i32, i32* %10, align 4, !dbg !49
+  %105 = icmp eq i32 %104, 4, !dbg !51
+  br i1 %105, label %106, label %120, !dbg !52
+
+; <label>:106:                                    ; preds = %87
+  %107 = load i32, i32* @__afl_prev_loc, !dbg !53, !nosanitize !2
+  %108 = load i8*, i8** @__afl_area_ptr, !dbg !53, !nosanitize !2
+  %109 = xor i32 %107, 37962, !dbg !53
+  %110 = getelementptr i8, i8* %108, i32 %109, !dbg !53
+  %111 = load i8, i8* %110, !dbg !53, !nosanitize !2
+  %112 = add i8 %111, 1, !dbg !53
+  store i8 %112, i8* %110, !dbg !53, !nosanitize !2
+  store i32 18981, i32* @__afl_prev_loc, !dbg !53, !nosanitize !2
+  %113 = load i8**, i8*** %11, align 8, !dbg !53
+  %114 = getelementptr inbounds i8*, i8** %113, i64 3, !dbg !53
+  %115 = load i8*, i8** %114, align 8, !dbg !53
+  %116 = call i32 @atoi(i8* %115) #5, !dbg !55
+  %117 = add nsw i32 %116, 1, !dbg !56
+  %118 = load i32, i32* %14, align 4, !dbg !57
+  %119 = udiv i32 %118, %117, !dbg !57
+  store i32 %119, i32* %14, align 4, !dbg !57
+  br label %120, !dbg !58
+
+; <label>:120:                                    ; preds = %106, %87
+  %121 = load i32, i32* @__afl_prev_loc, !dbg !59, !nosanitize !2
+  %122 = load i8*, i8** @__afl_area_ptr, !dbg !59, !nosanitize !2
+  %123 = xor i32 %121, 22764, !dbg !59
+  %124 = getelementptr i8, i8* %122, i32 %123, !dbg !59
+  %125 = load i8, i8* %124, !dbg !59, !nosanitize !2
+  %126 = add i8 %125, 1, !dbg !59
+  store i8 %126, i8* %124, !dbg !59, !nosanitize !2
+  store i32 11382, i32* @__afl_prev_loc, !dbg !59, !nosanitize !2
+  %127 = load i32, i32* %14, align 4, !dbg !59
+  %128 = icmp ugt i32 %127, 100, !dbg !61
+  br i1 %128, label %129, label %136, !dbg !62
+
+; <label>:129:                                    ; preds = %120
+  %130 = load i32, i32* @__afl_prev_loc, !dbg !63, !nosanitize !2
+  %131 = load i8*, i8** @__afl_area_ptr, !dbg !63, !nosanitize !2
+  %132 = xor i32 %130, 7977, !dbg !63
+  %133 = getelementptr i8, i8* %131, i32 %132, !dbg !63
+  %134 = load i8, i8* %133, !dbg !63, !nosanitize !2
+  %135 = add i8 %134, 1, !dbg !63
+  store i8 %135, i8* %133, !dbg !63, !nosanitize !2
+  store i32 3988, i32* @__afl_prev_loc, !dbg !63, !nosanitize !2
+  store i32 100, i32* %14, align 4, !dbg !63
+  br label %136, !dbg !65
+
+; <label>:136:                                    ; preds = %129, %120
+  %137 = load i32, i32* @__afl_prev_loc, !dbg !66, !nosanitize !2
+  %138 = load i8*, i8** @__afl_area_ptr, !dbg !66, !nosanitize !2
+  %139 = xor i32 %137, 31949, !dbg !66
+  %140 = getelementptr i8, i8* %138, i32 %139, !dbg !66
+  %141 = load i8, i8* %140, !dbg !66, !nosanitize !2
+  %142 = add i8 %141, 1, !dbg !66
+  store i8 %142, i8* %140, !dbg !66, !nosanitize !2
+  store i32 15974, i32* @__afl_prev_loc, !dbg !66, !nosanitize !2
+  call void @llvm.dbg.declare(metadata i8** %15, metadata !67, metadata !14), !dbg !66
+  %143 = load i32, i32* %13, align 4, !dbg !68
+  %144 = load i32, i32* %14, align 4, !dbg !69
+  %145 = mul i32 %143, %144, !dbg !70
+  %146 = add i32 %145, 1, !dbg !71
+  %147 = zext i32 %146 to i64, !dbg !68
+  %148 = call noalias i8* @malloc(i64 %147) #6, !dbg !72
+  store i8* %148, i8** %15, align 8, !dbg !66
+  call void @llvm.dbg.declare(metadata i32* %16, metadata !73, metadata !14), !dbg !75
+  store i32 0, i32* %16, align 4, !dbg !75
+  br label %149, !dbg !76
+
+; <label>:149:                                    ; preds = %212, %136
+  %150 = load i32, i32* @__afl_prev_loc, !dbg !77, !nosanitize !2
+  %151 = load i8*, i8** @__afl_area_ptr, !dbg !77, !nosanitize !2
+  %152 = xor i32 %150, 22714, !dbg !77
+  %153 = getelementptr i8, i8* %151, i32 %152, !dbg !77
+  %154 = load i8, i8* %153, !dbg !77, !nosanitize !2
+  %155 = add i8 %154, 1, !dbg !77
+  store i8 %155, i8* %153, !dbg !77, !nosanitize !2
+  store i32 11357, i32* @__afl_prev_loc, !dbg !77, !nosanitize !2
+  %156 = load i32, i32* %16, align 4, !dbg !77
+  %157 = load i32, i32* %14, align 4, !dbg !80
+  %158 = icmp ult i32 %156, %157, !dbg !81
+  br i1 %158, label %159, label %221, !dbg !82
+
+; <label>:159:                                    ; preds = %149
+  %160 = load i32, i32* @__afl_prev_loc, !dbg !84, !nosanitize !2
+  %161 = load i8*, i8** @__afl_area_ptr, !dbg !84, !nosanitize !2
+  %162 = xor i32 %160, 55211, !dbg !84
+  %163 = getelementptr i8, i8* %161, i32 %162, !dbg !84
+  %164 = load i8, i8* %163, !dbg !84, !nosanitize !2
+  %165 = add i8 %164, 1, !dbg !84
+  store i8 %165, i8* %163, !dbg !84, !nosanitize !2
+  store i32 27605, i32* @__afl_prev_loc, !dbg !84, !nosanitize !2
+  call void @llvm.dbg.declare(metadata i32* %17, metadata !87, metadata !14), !dbg !84
+  store i32 0, i32* %17, align 4, !dbg !84
+  br label %166, !dbg !88
+
+; <label>:166:                                    ; preds = %196, %159
+  %167 = load i32, i32* @__afl_prev_loc, !dbg !89, !nosanitize !2
+  %168 = load i8*, i8** @__afl_area_ptr, !dbg !89, !nosanitize !2
+  %169 = xor i32 %167, 16882, !dbg !89
+  %170 = getelementptr i8, i8* %168, i32 %169, !dbg !89
+  %171 = load i8, i8* %170, !dbg !89, !nosanitize !2
+  %172 = add i8 %171, 1, !dbg !89
+  store i8 %172, i8* %170, !dbg !89, !nosanitize !2
+  store i32 8441, i32* @__afl_prev_loc, !dbg !89, !nosanitize !2
+  %173 = load i32, i32* %17, align 4, !dbg !89
+  %174 = load i32, i32* %13, align 4, !dbg !92
+  %175 = icmp ult i32 %173, %174, !dbg !93
+  br i1 %175, label %176, label %205, !dbg !94
+
+; <label>:176:                                    ; preds = %166
+  %177 = load i32, i32* @__afl_prev_loc, !dbg !96, !nosanitize !2
+  %178 = load i8*, i8** @__afl_area_ptr, !dbg !96, !nosanitize !2
+  %179 = xor i32 %177, 7931, !dbg !96
+  %180 = getelementptr i8, i8* %178, i32 %179, !dbg !96
+  %181 = load i8, i8* %180, !dbg !96, !nosanitize !2
+  %182 = add i8 %181, 1, !dbg !96
+  store i8 %182, i8* %180, !dbg !96, !nosanitize !2
+  store i32 3965, i32* @__afl_prev_loc, !dbg !96, !nosanitize !2
+  %183 = load i8*, i8** %12, align 8, !dbg !96
+  %184 = load i32, i32* %17, align 4, !dbg !98
+  %185 = zext i32 %184 to i64, !dbg !96
+  %186 = getelementptr inbounds i8, i8* %183, i64 %185, !dbg !96
+  %187 = load i8, i8* %186, align 1, !dbg !96
+  %188 = load i8*, i8** %15, align 8, !dbg !99
+  %189 = load i32, i32* %16, align 4, !dbg !100
+  %190 = load i32, i32* %13, align 4, !dbg !101
+  %191 = mul i32 %189, %190, !dbg !102
+  %192 = load i32, i32* %17, align 4, !dbg !103
+  %193 = add i32 %191, %192, !dbg !104
+  %194 = zext i32 %193 to i64, !dbg !99
+  %195 = getelementptr inbounds i8, i8* %188, i64 %194, !dbg !99
+  store i8 %187, i8* %195, align 1, !dbg !105
+  br label %196, !dbg !106
+
+; <label>:196:                                    ; preds = %176
+  %197 = load i32, i32* @__afl_prev_loc, !dbg !107, !nosanitize !2
+  %198 = load i8*, i8** @__afl_area_ptr, !dbg !107, !nosanitize !2
+  %199 = xor i32 %197, 43491, !dbg !107
+  %200 = getelementptr i8, i8* %198, i32 %199, !dbg !107
+  %201 = load i8, i8* %200, !dbg !107, !nosanitize !2
+  %202 = add i8 %201, 1, !dbg !107
+  store i8 %202, i8* %200, !dbg !107, !nosanitize !2
+  store i32 21745, i32* @__afl_prev_loc, !dbg !107, !nosanitize !2
+  %203 = load i32, i32* %17, align 4, !dbg !107
+  %204 = add i32 %203, 1, !dbg !107
+  store i32 %204, i32* %17, align 4, !dbg !107
+  br label %166, !dbg !109, !llvm.loop !110
+
+; <label>:205:                                    ; preds = %166
+  %206 = load i32, i32* @__afl_prev_loc, !dbg !113, !nosanitize !2
+  %207 = load i8*, i8** @__afl_area_ptr, !dbg !113, !nosanitize !2
+  %208 = xor i32 %206, 57670, !dbg !113
+  %209 = getelementptr i8, i8* %207, i32 %208, !dbg !113
+  %210 = load i8, i8* %209, !dbg !113, !nosanitize !2
+  %211 = add i8 %210, 1, !dbg !113
+  store i8 %211, i8* %209, !dbg !113, !nosanitize !2
+  store i32 28835, i32* @__afl_prev_loc, !dbg !113, !nosanitize !2
+  br label %212, !dbg !113
+
+; <label>:212:                                    ; preds = %205
+  %213 = load i32, i32* @__afl_prev_loc, !dbg !114, !nosanitize !2
+  %214 = load i8*, i8** @__afl_area_ptr, !dbg !114, !nosanitize !2
+  %215 = xor i32 %213, 124, !dbg !114
+  %216 = getelementptr i8, i8* %214, i32 %215, !dbg !114
+  %217 = load i8, i8* %216, !dbg !114, !nosanitize !2
+  %218 = add i8 %217, 1, !dbg !114
+  store i8 %218, i8* %216, !dbg !114, !nosanitize !2
+  store i32 62, i32* @__afl_prev_loc, !dbg !114, !nosanitize !2
+  %219 = load i32, i32* %16, align 4, !dbg !114
+  %220 = add i32 %219, 1, !dbg !114
+  store i32 %220, i32* %16, align 4, !dbg !114
+  br label %149, !dbg !116, !llvm.loop !117
+
+; <label>:221:                                    ; preds = %149
+  %222 = load i32, i32* @__afl_prev_loc, !dbg !120, !nosanitize !2
+  %223 = load i8*, i8** @__afl_area_ptr, !dbg !120, !nosanitize !2
+  %224 = xor i32 %222, 25282, !dbg !120
+  %225 = getelementptr i8, i8* %223, i32 %224, !dbg !120
+  %226 = load i8, i8* %225, !dbg !120, !nosanitize !2
+  %227 = add i8 %226, 1, !dbg !120
+  store i8 %227, i8* %225, !dbg !120, !nosanitize !2
+  store i32 12641, i32* @__afl_prev_loc, !dbg !120, !nosanitize !2
+  %228 = load i8*, i8** %15, align 8, !dbg !120
+  %229 = load i32, i32* %14, align 4, !dbg !121
+  %230 = load i32, i32* %13, align 4, !dbg !122
+  %231 = mul i32 %229, %230, !dbg !123
+  %232 = zext i32 %231 to i64, !dbg !120
+  %233 = getelementptr inbounds i8, i8* %228, i64 %232, !dbg !120
+  store i8 0, i8* %233, align 1, !dbg !124
+  %234 = load i8*, i8** %15, align 8, !dbg !125
+  %235 = getelementptr [3 x i8], [3 x i8]* @.str.2, i32 0, i32 0
+  %236 = call i32 (i8*, ...) @printf(i8* %235, i8* %234), !dbg !126
+  %237 = load i8*, i8** %15, align 8, !dbg !127
+  call void @free(i8* %237) #6, !dbg !128
+  store i32 0, i32* %9, align 4, !dbg !129
+  br label %238, !dbg !129
+
+; <label>:238:                                    ; preds = %221, %78, %49
+  %239 = load i32, i32* @__afl_prev_loc, !dbg !130, !nosanitize !2
+  %240 = load i8*, i8** @__afl_area_ptr, !dbg !130, !nosanitize !2
+  %241 = xor i32 %239, 2132, !dbg !130
+  %242 = getelementptr i8, i8* %240, i32 %241, !dbg !130
+  %243 = load i8, i8* %242, !dbg !130, !nosanitize !2
+  %244 = add i8 %243, 1, !dbg !130
+  store i8 %244, i8* %242, !dbg !130, !nosanitize !2
+  store i32 1066, i32* @__afl_prev_loc, !dbg !130, !nosanitize !2
+  %245 = load i32, i32* %9, align 4, !dbg !130
+  ret i32 %245, !dbg !130
+
+EXIT_INT_main:                                    ; preds = %42, %58, %30, %71, %23, %2
+  call void @exit(i32 0), !nosanitize !2
+  unreachable
+}
+
+; Function Attrs: nounwind readnone
+declare void @llvm.dbg.declare(metadata, metadata, metadata) #1
+
+declare i32 @printf(i8*, ...) #2
+
+; Function Attrs: nounwind readonly
+declare i64 @strlen(i8*) #3
+
+; Function Attrs: nounwind readonly
+declare i32 @atoi(i8*) #3
+
+; Function Attrs: nounwind
+declare noalias i8* @malloc(i64) #4
+
+; Function Attrs: nounwind
+declare void @free(i8*) #4
+
+declare void @exit(i32)
+
+attributes #0 = { noinline nounwind uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #1 = { nounwind readnone }
+attributes #2 = { "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #3 = { nounwind readonly "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #4 = { nounwind "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #5 = { nounwind readonly }
+attributes #6 = { nounwind }
+
+!llvm.dbg.cu = !{!0}
+!llvm.ident = !{!3}
+!llvm.module.flags = !{!4, !5}
+
+!0 = distinct !DICompileUnit(language: DW_LANG_C99, file: !1, producer: "clang version 4.0.0 (tags/RELEASE_400/final)", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, enums: !2)
+!1 = !DIFile(filename: "src/modular.c", directory: "/home/patrick/Documents/Git/Beacon_CSEC_759_RIT/MyExample1")
+!2 = !{}
+!3 = !{!"clang version 4.0.0 (tags/RELEASE_400/final)"}
+!4 = !{i32 2, !"Dwarf Version", i32 4}
+!5 = !{i32 2, !"Debug Info Version", i32 3}
+!6 = distinct !DISubprogram(name: "main", scope: !1, file: !1, line: 5, type: !7, isLocal: false, isDefinition: true, scopeLine: 5, flags: DIFlagPrototyped, isOptimized: false, unit: !0, variables: !2)
+!7 = !DISubroutineType(types: !8)
+!8 = !{!9, !9, !10}
+!9 = !DIBasicType(name: "int", size: 32, encoding: DW_ATE_signed)
+!10 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!11 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !12, size: 64)
+!12 = !DIBasicType(name: "char", size: 8, encoding: DW_ATE_signed_char)
+!13 = !DILocalVariable(name: "argc", arg: 1, scope: !6, file: !1, line: 5, type: !9)
+!14 = !DIExpression()
+!15 = !DILocation(line: 5, column: 14, scope: !6)
+!16 = !DILocalVariable(name: "argv", arg: 2, scope: !6, file: !1, line: 5, type: !10)
+!17 = !DILocation(line: 5, column: 27, scope: !6)
+!18 = !DILocation(line: 6, column: 9, scope: !19)
+!19 = distinct !DILexicalBlock(scope: !6, file: !1, line: 6, column: 9)
+!20 = !DILocation(line: 6, column: 14, scope: !19)
+!21 = !DILocation(line: 6, column: 18, scope: !19)
+!22 = !DILocation(line: 6, column: 21, scope: !23)
+!23 = !DILexicalBlockFile(scope: !19, file: !1, discriminator: 1)
+!24 = !DILocation(line: 6, column: 26, scope: !23)
+!25 = !DILocation(line: 6, column: 9, scope: !26)
+!26 = !DILexicalBlockFile(scope: !6, file: !1, discriminator: 1)
+!27 = !DILocation(line: 7, column: 9, scope: !28)
+!28 = distinct !DILexicalBlock(scope: !19, file: !1, line: 6, column: 32)
+!29 = !DILocation(line: 8, column: 9, scope: !28)
+!30 = !DILocation(line: 10, column: 9, scope: !31)
+!31 = distinct !DILexicalBlock(scope: !6, file: !1, line: 10, column: 9)
+!32 = !DILocation(line: 10, column: 14, scope: !31)
+!33 = !DILocation(line: 10, column: 9, scope: !6)
+!34 = !DILocation(line: 11, column: 9, scope: !35)
+!35 = distinct !DILexicalBlock(scope: !31, file: !1, line: 10, column: 19)
+!36 = !DILocation(line: 12, column: 2, scope: !35)
+!37 = !DILocation(line: 14, column: 11, scope: !6)
+!38 = !DILocalVariable(name: "base_string", scope: !6, file: !1, line: 14, type: !11)
+!39 = !DILocation(line: 14, column: 25, scope: !6)
+!40 = !DILocalVariable(name: "base_length", scope: !6, file: !1, line: 15, type: !41)
+!41 = !DIBasicType(name: "unsigned int", size: 32, encoding: DW_ATE_unsigned)
+!42 = !DILocation(line: 15, column: 18, scope: !6)
+!43 = !DILocation(line: 15, column: 39, scope: !6)
+!44 = !DILocation(line: 15, column: 32, scope: !6)
+!45 = !DILocalVariable(name: "multiplier", scope: !6, file: !1, line: 16, type: !41)
+!46 = !DILocation(line: 16, column: 18, scope: !6)
+!47 = !DILocation(line: 16, column: 36, scope: !6)
+!48 = !DILocation(line: 16, column: 31, scope: !6)
+!49 = !DILocation(line: 17, column: 9, scope: !50)
+!50 = distinct !DILexicalBlock(scope: !6, file: !1, line: 17, column: 9)
+!51 = !DILocation(line: 17, column: 14, scope: !50)
+!52 = !DILocation(line: 17, column: 9, scope: !6)
+!53 = !DILocation(line: 18, column: 29, scope: !54)
+!54 = distinct !DILexicalBlock(scope: !50, file: !1, line: 17, column: 20)
+!55 = !DILocation(line: 18, column: 24, scope: !54)
+!56 = !DILocation(line: 18, column: 38, scope: !54)
+!57 = !DILocation(line: 18, column: 20, scope: !54)
+!58 = !DILocation(line: 19, column: 5, scope: !54)
+!59 = !DILocation(line: 20, column: 9, scope: !60)
+!60 = distinct !DILexicalBlock(scope: !6, file: !1, line: 20, column: 9)
+!61 = !DILocation(line: 20, column: 20, scope: !60)
+!62 = !DILocation(line: 20, column: 9, scope: !6)
+!63 = !DILocation(line: 21, column: 20, scope: !64)
+!64 = distinct !DILexicalBlock(scope: !60, file: !1, line: 20, column: 27)
+!65 = !DILocation(line: 22, column: 5, scope: !64)
+!66 = !DILocation(line: 23, column: 11, scope: !6)
+!67 = !DILocalVariable(name: "result_string", scope: !6, file: !1, line: 23, type: !11)
+!68 = !DILocation(line: 23, column: 34, scope: !6)
+!69 = !DILocation(line: 23, column: 48, scope: !6)
+!70 = !DILocation(line: 23, column: 46, scope: !6)
+!71 = !DILocation(line: 23, column: 59, scope: !6)
+!72 = !DILocation(line: 23, column: 27, scope: !6)
+!73 = !DILocalVariable(name: "i", scope: !74, file: !1, line: 24, type: !41)
+!74 = distinct !DILexicalBlock(scope: !6, file: !1, line: 24, column: 5)
+!75 = !DILocation(line: 24, column: 23, scope: !74)
+!76 = !DILocation(line: 24, column: 10, scope: !74)
+!77 = !DILocation(line: 24, column: 30, scope: !78)
+!78 = !DILexicalBlockFile(scope: !79, file: !1, discriminator: 1)
+!79 = distinct !DILexicalBlock(scope: !74, file: !1, line: 24, column: 5)
+!80 = !DILocation(line: 24, column: 34, scope: !78)
+!81 = !DILocation(line: 24, column: 32, scope: !78)
+!82 = !DILocation(line: 24, column: 5, scope: !83)
+!83 = !DILexicalBlockFile(scope: !74, file: !1, discriminator: 1)
+!84 = !DILocation(line: 25, column: 27, scope: !85)
+!85 = distinct !DILexicalBlock(scope: !86, file: !1, line: 25, column: 9)
+!86 = distinct !DILexicalBlock(scope: !79, file: !1, line: 24, column: 51)
+!87 = !DILocalVariable(name: "j", scope: !85, file: !1, line: 25, type: !41)
+!88 = !DILocation(line: 25, column: 14, scope: !85)
+!89 = !DILocation(line: 25, column: 34, scope: !90)
+!90 = !DILexicalBlockFile(scope: !91, file: !1, discriminator: 1)
+!91 = distinct !DILexicalBlock(scope: !85, file: !1, line: 25, column: 9)
+!92 = !DILocation(line: 25, column: 38, scope: !90)
+!93 = !DILocation(line: 25, column: 36, scope: !90)
+!94 = !DILocation(line: 25, column: 9, scope: !95)
+!95 = !DILexicalBlockFile(scope: !85, file: !1, discriminator: 1)
+!96 = !DILocation(line: 26, column: 46, scope: !97)
+!97 = distinct !DILexicalBlock(scope: !91, file: !1, line: 25, column: 56)
+!98 = !DILocation(line: 26, column: 58, scope: !97)
+!99 = !DILocation(line: 26, column: 13, scope: !97)
+!100 = !DILocation(line: 26, column: 27, scope: !97)
+!101 = !DILocation(line: 26, column: 29, scope: !97)
+!102 = !DILocation(line: 26, column: 28, scope: !97)
+!103 = !DILocation(line: 26, column: 41, scope: !97)
+!104 = !DILocation(line: 26, column: 40, scope: !97)
+!105 = !DILocation(line: 26, column: 44, scope: !97)
+!106 = !DILocation(line: 27, column: 9, scope: !97)
+!107 = !DILocation(line: 25, column: 52, scope: !108)
+!108 = !DILexicalBlockFile(scope: !91, file: !1, discriminator: 2)
+!109 = !DILocation(line: 25, column: 9, scope: !108)
+!110 = distinct !{!110, !111, !112}
+!111 = !DILocation(line: 25, column: 9, scope: !85)
+!112 = !DILocation(line: 27, column: 9, scope: !85)
+!113 = !DILocation(line: 28, column: 5, scope: !86)
+!114 = !DILocation(line: 24, column: 47, scope: !115)
+!115 = !DILexicalBlockFile(scope: !79, file: !1, discriminator: 2)
+!116 = !DILocation(line: 24, column: 5, scope: !115)
+!117 = distinct !{!117, !118, !119}
+!118 = !DILocation(line: 24, column: 5, scope: !74)
+!119 = !DILocation(line: 28, column: 5, scope: !74)
+!120 = !DILocation(line: 29, column: 5, scope: !6)
+!121 = !DILocation(line: 29, column: 19, scope: !6)
+!122 = !DILocation(line: 29, column: 30, scope: !6)
+!123 = !DILocation(line: 29, column: 29, scope: !6)
+!124 = !DILocation(line: 29, column: 43, scope: !6)
+!125 = !DILocation(line: 31, column: 18, scope: !6)
+!126 = !DILocation(line: 31, column: 5, scope: !6)
+!127 = !DILocation(line: 33, column: 10, scope: !6)
+!128 = !DILocation(line: 33, column: 5, scope: !6)
+!129 = !DILocation(line: 35, column: 5, scope: !6)
+!130 = !DILocation(line: 36, column: 1, scope: !6)
