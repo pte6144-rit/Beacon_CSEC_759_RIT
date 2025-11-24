@@ -1,0 +1,11 @@
+FROM ubuntu
+RUN apt update
+RUN apt install cmake
+RUN mkdir /beacon
+RUN cd /beacon
+WORKDIR /beacon
+ADD ../ /beacon
+
+
+#setup
+
