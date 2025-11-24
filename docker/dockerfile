@@ -47,4 +47,8 @@ RUN make -j
 
 ADD Fuzzer /beacon/Fuzzer
 
+COPY beacon.sh /beacon/beacon.sh
+
+RUN pip3 install wllvm --break-system-packages
+
 ENTRYPOINT ["/bin/bash", "/beacon/beacon.sh"]
