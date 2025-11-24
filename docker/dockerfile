@@ -17,7 +17,6 @@ RUN cp -r /usr/llvm/share/* /usr/share
 RUN mkdir /beacon
 RUN cd /beacon
 WORKDIR /beacon
-ADD ../ /beacon
 
 RUN git clone https://github.com/SVF-tools/SVF.git
 WORKDIR /beacon/SVF
@@ -25,24 +24,27 @@ RUN git reset --hard 3170e83b03eefc15e5a3707e5c52dc726ffcd60a
 RUN sed -i 's/LLVMRELEASE=\/home\/ysui\/llvm-4.0.0\/llvm-4.0.0.obj/LLVMRELEASE=\/usr\/llvm/' build.sh
 RUN ./build.sh
 
-
+ADD precondInfer /beacon/precondInfer
 RUN mkdir /beacon/precondInfer/build
 WORKDIR /beacon/precondInfer/build
 RUN cmake \
 	-DENABLE_KLEE_ASSERTS=ON \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DLLVM_CONFIG_BINARY=/usr/bin/llvm-config \
-	-DSVF_ROOT_DIR=$FUZZER/repo/SVF \
-	-DSVF_LIB_DIR=$FUZZER/repo/SVF/Release-build/lib \
+	-DSVF_ROOT_DIR=$FUZZER/beacon/SVF \
+	-DSVF_LIB_DIR=$FUZZER/beacon/SVF/Release-build/lib \
 	..
 RUN make -j
 
-RUN mkdir beacon/Ins/build
+ADD Ins /beacon/Ins
+RUN mkdir beacon/Ins/build -p
 WORKDIR /beacon/Ins/build
 RUN CXXFLAGS="-fno-rtti" cmake \
 	-DLLVM_DIR=/usr/lib/cmake/llvm/ \
 	-DCMAKE_BUILD_TYPE=Release \
 	..
 RUN make -j
+
+ADD Fuzzer /beacon/Fuzzer
 
 ENTRYPOINT ["/bin/bash", "/beacon/beacon.sh"]
