@@ -105,7 +105,7 @@ extract-bc $outfile -o "$datadir$outfile.bc"
 
 if [[ $targetline == "-1" ]]
 then
-	$BEACON/LineNumber/build/lineNumbers "${cfile##*"/"}" | sed 's/.*\///' > "$datadir""line.txt"
+	$BEACON/LineNumber/build/lineNumbers $cfile | sed 's/.*\///' > "$datadir""line.txt"
 else
 	echo "${cfile##*"/"}:$targetline" > "$datadir""line.txt"
 fi
