@@ -5,7 +5,7 @@ set -e
 export LLVM_COMPILER=clang
 BEACON="/beacon"
 cfile="";
-targetline="0";
+targetline="-1";
 outfile="";
 insfile="";
 datadir=".";
@@ -98,13 +98,25 @@ fi
 ls $datadir 1>/dev/null 2>/dev/null|| mkdir $datadir;
 currentdir=$(pwd)
 
+echo "---Start WLLVM---"
 wllvm -g $cfile -o $outfile
+echo "---START EXTRACTION---"
 extract-bc $outfile -o "$datadir$outfile.bc"
-echo "${cfile##*"/"}:$targetline" > "$datadir""line.txt"
+
+if [[ $targetline == "-1" ]]
+then
+	$BEACON/LineNumber/build/lineNumbers "${cfile##*"/"}" | sed 's/.*\///' > "$datadir""line.txt"
+else
+	echo "${cfile##*"/"}:$targetline" > "$datadir""line.txt"
+fi
+
 
 cd $datadir
+echo "---START PRECONDINFER---"
 $BEACON/precondInfer/build/bin/precondInfer "$outfile.bc" --target-file=line.txt --join-bound=5
+echo "---START INSTRUMENTATION---"
 $BEACON/Ins/build/Ins -output="$insfile.bc" -blocks=bbreaches.txt -afl -log=log.txt -load=range_res.txt ./transed.bc
 cd $currentdir
+echo "---START COMPILE---"
 clang "$datadir$insfile.bc" -o $insfile -lm -lz $BEACON/Fuzzer/afl-llvm-rt.o
-
+echo "---Finish COMPILE---"
